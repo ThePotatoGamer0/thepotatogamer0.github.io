@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Itch.io BrowserGames</title>
+    <style>
+        .image-container {
+          display: flex; /* Use flexbox for better layout */
+          flex-wrap: wrap; /* Allow images to wrap onto new rows */
+          justify-content: space-between; /* Evenly space images */
+          margin: 25px;
+        }
+    
+        .image-item { /* New container for each image */
+          flex: 0 0 30%; /* Allocate equal space for each image */
+          margin-bottom: 10px; /* Add space between rows */
+          display: flex; /* Make image-item a flex container */
+          flex-direction: column; /* Stack image and button vertically */
+          align-items: center; /* Center the button horizontally */
+        }
+    
+        .dynamic-image {
+          max-width: 100%; 
+          height: auto; 
+          margin-bottom: 10px; /* Add space between image and button */
+          border-radius: 25%;
+        }
+        
+        .ItchioLogo {
+          max-width: 10%;
+          max-height: 10%;
+          height: auto; 
+          margin-right: 10px; /* Add space between image and button */
+        }
+
+        .image-item button {
+          padding: 10px 20px; /* Add padding to the button */
+          border-radius: 25px;
+          font-size: 25px;
+        }
+        
+        .header {
+          display: flex;
+          align-items: center;
+        }
+
+        .header-text {
+          font-size: 1vw;
+          margin: 0px;
+        }
+
+        .header-title {
+          font-size: 2vw;
+          margin: 0px;
+        }
+
+        .websiteselectionbar {
+          display: flex;
+          flex-direction: row;
+          height: 50px;
+          width: viewport;
+          margin-top: 0%;
+          margin-left: 0%;
+          margin-bottom: 10px;
+        }
+        .buttonrow {
+          display: flex;
+          flex-direction: row;
+          height: 100%;
+          width: 90vw;
+          margin-top: 0%;
+          margin-left: 20px;
+        }
+
+        .button {
+          background-color:#333333;
+          color:#FFFFFF;
+          font-family: verdana;
+          font-size: 100%;
+          height:50px;
+          transition: 0.5s;
+        }
+        .button:hover {
+          background-color:#444444;
+          transition: 0.5s;
+        }
+      </style>
+</head>
+<body style="background-color:#222222; font-family: verdana; color:#FFFFFF;">
+  <div class="websiteselectionbar">
+    <img src="./TPGLogo.jpg" alt="PotatoGamer Logo">
+    <div class="buttonrow">
+      <a href="https://thepotatogamer0.github.io">
+        <button class="button">Home</button>
+      </a>
+      <a href="https://thepotatogamer0.github.io/Itch.io-BrowserGames/">
+        <button class="button">Itchy</button>
+      </a>
+      <a href="https://thepotatogamer0.github.io/Ruffler">
+        <button class="button">Ruffler</button>
+      </a>
+    </div>
+
+    <script>
+      const buttonRow = document.querySelector('.buttonrow');
+      const buttons = document.querySelectorAll('.button');
+  
+      function resizeButtons() {
+        const rowWidth = buttonRow.offsetWidth;
+        const buttonCount = buttons.length;
+        const buttonWidth = rowWidth / buttonCount;
+  
+        buttons.forEach(button => {
+          button.style.width = buttonWidth + 'px';
+        });
+      }
+  
+      resizeButtons();
+      window.addEventListener('resize', resizeButtons);
+    </script>
+
+  </div>
+    <div class="header">
+      <img src="./itchiologo.png" alt="Itch.io Logo" class="ItchioLogo">
+      <div class="header-text">
+        <span class="header-title">
+        <h1>Itchy</h1>
+        </span>
+        <p>An online itch.io html game hoster</p>
+      </div>
+    </div>
+
+    <div class="image-container">
+      <div class="image-item">
+        <img src="./wbwwb/WBWWB.png" alt="Image 1" class="dynamic-image">
+        <a href="./wbwwb/">
+          <button>We become what we behold</button>
+        </a>
+      </div>
+    
+      <div class="image-item">
+        <img src="./poom/poom.png" alt="Image 2" class="dynamic-image">
+        <a href="./poom/">
+          <button>Poom (Doom HTML5)</button>
+        </a>
+      </div>
+    
+      <div class="image-item">
+        <img src="./PolyTrack/polytrack.png" alt="Image 3" class="dynamic-image">
+        <a href="./PolyTrack">
+          <button>PolyTrack</button>
+        </a>
+      </div>
+    </div>
+    
+    <div class="image-container">
+      <div class="image-item">
+        <img src="./fff/fff.png" alt="Future Fish Food" class="dynamic-image">
+        <a href="./fff">
+            <button>Future Fish Food</button>
+        </a>
+      </div>
+    
+      <div class="image-item">
+        <img src="./fnf/fnf.png" alt="Image 2" class="dynamic-image">
+        <a href="./fnf">
+          <button>Friday Night Funkin</button>
+        </a>
+      </div>
+    
+      <div class="image-item">
+        <img src="./stc/stc.png" alt="Image 3" class="dynamic-image">
+        <a href="./stc">
+          <button>Sort the court</button>
+        </a>
+      </div>
+    </div>
+
+    <div class="image-container">
+      <div class="image-item">
+        <img src="./tsc/tsc.png" alt="Image 1" class="dynamic-image">
+        <a href="./tsc">
+            <button>Tanuki Sunset Classic</button>
+        </a>
+      </div>
+    
+      <div class="image-item">
+        <img src="./nogame.png" alt="Image 2" class="dynamic-image">
+        <a href="./">
+          <button>No Game</button>
+        </a>
+      </div>
+    
+      <div class="image-item">
+        <img src="./nogame.png" alt="Image 3" class="dynamic-image">
+        <a href="./">
+          <button>No Game</button>
+        </a>
+      </div>
+    </div>
+
+    <script>
+      window.addEventListener('resize', function() {
+        const images = document.querySelectorAll('.dynamic-image');
+  
+        images.forEach(image => {
+          const containerWidth = image.parentElement.offsetWidth;
+          image.style.width = containerWidth + 'px';
+        });
+      });
+    
+      window.onload = function() {
+        const images = document.querySelectorAll('.dynamic-image');
+  
+        images.forEach(image => {
+          const containerWidth = image.parentElement.offsetWidth;
+          image.style.width = containerWidth + 'px';
+        });
+      };
+    </script>
+    <p>Made By yours truly, ThePotatoGamer0.</p>
+</body>
