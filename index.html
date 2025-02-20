@@ -63,6 +63,81 @@
           font-size: 1vw;
           margin: 0px;
         }
+
+        .popup {
+  display: none; /* Initially hidden */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+.popup-content {
+  background-color: #fefefe;
+  margin: 5% auto; /* 5% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%; /* About a third of the viewport */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out; /* Fade-in/out transition */
+}
+
+.popup-content h2 {
+  margin-top: 0;
+}
+
+.popup-content p {
+  margin-bottom: 15px;
+}
+
+.popup-buttons {
+  text-align: center;
+}
+
+.popup-buttons button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.popup-buttons button:hover {
+  background-color: #3e8e41;
+}
+
+.popup-buttons button.cancel {
+  background-color: #f44336; /* Red */
+}
+
+.popup-buttons button.cancel:hover {
+  background-color: #da190b;
+}
+
+.link {
+  font-size: 10px;
+  text-decoration: underline;
+  color:#0000EE
+}
+
+.link:hover {
+  color:#0000ff;
+  cursor:pointer;
+}
+
+
       </style>
 </head>
 <body style="background-color:#222222; font-family: verdana; color:#FFFFFF;">
@@ -118,5 +193,26 @@
       </div>
     </div>
 
-    <p>Made By yours truly, ThePotatoGamer0.</p>
+    <div class="info">
+      <div class="infotext">
+      <h1>Other Useful sites:</h1>
+       Youtube frontends which can be used to get around proxies (like C2ken in the uk)
+       <br>
+       <a href="https://piped.video/">Piped</a><a href="https://poketube.fun/">Poketube</a><a href="https://tube.cadence.moe">CloudTube</a><br>Have something to add? reach out to me here: <a href="mailto:example@example.com"><u>example@example.com</u></a>
+      </div>
+    </div>
+
+
+    <div id="myPopup" class="popup">
+      <div class="popup-content">
+        <h2>Are you sure?</h2>
+        <p>This action will take you to a part of the site that hosts NSFW games, if your in school this may not be the best idea.</p>
+        <div class="popup-buttons">
+          <button id="yesButton">Yes</button>
+          <button class="cancel" onclick="document.getElementById('myPopup').style.display='none'">No</button>
+        </div>
+      </div>
+    </div>
+    <p>Made By yours truly, ThePotatoGamer0.</p><p onclick="document.getElementById('myPopup').style.display='block'" class="link">NSFW Games</p>
+
 </body>
