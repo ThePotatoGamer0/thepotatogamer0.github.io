@@ -14,4 +14,12 @@ function LoaderEnd() {
     contentDiv.classList.add('fade-in');
     setTimeout(loaderDisappear, 500)
 }
-setTimeout(LoaderEnd, 3000); // 3 seconds
+if (contentDiv.complete) {
+    setTimeout(LoaderEnd, 500); // Call the function immediately if the div is already loaded
+  } else {
+    // Attach the event listener to the 'load' event of the div
+    contentDiv.addEventListener('load', function() {
+        setTimeout(LoaderEnd, 500);
+    });
+  }
+setTimeout(LoaderEnd, 500); // half a second

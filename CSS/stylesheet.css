@@ -86,7 +86,8 @@ nav {
   
   nav a:hover {
     background-color: #777777; /* Lighter grey on hover */
-    color: white
+    color: white;
+    scale:1.1;
   }
   
   /* Optional: Style for the active/current page */
@@ -121,6 +122,7 @@ div.switchdiv {
     right: 0;
     bottom: 0;
     background-color: #FF0000;
+    box-shadow: 100px, black, inset;
     transition: .4s;
     scale:1
   }
@@ -168,7 +170,7 @@ div.switchdiv {
   }
   
   .image-section {
-    flex: 0.2; /* Image section takes up 1/2 of the container's width (initially) */
+    flex: 0.5; /* Image section takes up 1/2 of the container's width (initially) */
     overflow: hidden; /* To handle image overflow if it's larger than the container */
   }
   
@@ -176,8 +178,6 @@ div.switchdiv {
     display: block; /* Remove default inline image spacing */
     width: 100%; /* Image fills the width of its container */
     height: auto; /* Maintain image aspect ratio */
-    object-fit: contain; /* Cover the area, cropping if necessary to maintain aspect ratio */
-    min-height: 100%; /* Ensure image section is at least 100% height of container */
     border-radius: 50%;
   }
   
