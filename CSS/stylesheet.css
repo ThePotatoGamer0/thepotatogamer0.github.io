@@ -48,12 +48,42 @@ body {
     }
   }
 
+  @keyframes fadeLeft {
+    from {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(-1000px);
+    }
+  }
+
+  @keyframes fadeRight {
+    from {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(1000px);
+    }
+  }
+
   .fade-in {
     animation: fadeIn 2s ease forwards;
   }
 
   .fade-out {
     animation: fadeOut 500ms ease forwards;
+  }
+
+  .fade-left {
+    animation: fadeLeft 500ms ease-in-out forwards;
+  }
+
+  .fade-right {
+    animation: fadeRight 500ms ease-in-out forwards;
   }
 
 nav {
