@@ -74,6 +74,10 @@ body {
     animation: fadeIn 2s ease forwards;
   }
 
+  .fastfade-in {
+    animation: fadeIn 300ms ease forwards;
+  }
+
   .fade-out {
     animation: fadeOut 500ms ease forwards;
   }
