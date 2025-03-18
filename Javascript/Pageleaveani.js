@@ -14,6 +14,10 @@ document.addEventListener('DOMContentLoaded', function() {
         contentDiv.addEventListener('animationend', function() {
           window.location.href = href;
         }, { once: true });
+
+        contentDiv.addEventListener('animationend', function(){
+            contentDiv.classList.remove(animationType);
+          },{once:true});
       });
     });
   });
