@@ -47,6 +47,15 @@
           <p>This is a paragraph of example text. It will scale to fit the width of the text section and will not go below the image section. The layout is responsive, and on smaller screens, the image and text will stack vertically.</p>
         </div>
       </div>
+      <div class="content-container">
+        <div style="font-family: sans-serif; max-width: 300px;">
+          <input type="text" id="ip-input" placeholder="Enter Minecraft IP" style="width: 100%; padding: 8px; margin-bottom: 10px;">
+          <button onclick="checkServerStatus()" style="width: 100%; padding: 8px;">Check Server</button>
+          <div id="status-box" style="margin-top: 10px; width: 100%; height: 100px; background-color: gray; color: white; display: flex; align-items: center; justify-content: center;">
+            Awaiting input...
+          </div>
+        </div>
+      </div>
 
     <p>Bottom Paragraph</p>
     <!-- Enter Footer Here -->
@@ -64,4 +73,5 @@
     <script src="./Javascript/Loader.js"></script>
     <script src="./Javascript/Typingani.js"></script>
     <script src="./Javascript/Pageleaveani.js"></script>
+    <script src="./Javascript/Mcservstat.js"></script>
 </body>
