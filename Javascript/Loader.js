@@ -25,21 +25,22 @@ const currentIndex = navOrder.indexOf(currentPage);
 const referrerIndex = navOrder.indexOf(referrerPage);
 
 function animateTransition(direction) {
-  contentDiv.style.display = 'block'; // show now, animate later
-
   if (direction === 'left') {
       loaderDiv.classList.add('fade-right');
       setTimeout(() => {
+          contentDiv.style.display = 'block';
           contentDiv.classList.add('page-left-in');
       }, 750);
   } else if (direction === 'right') {
       loaderDiv.classList.add('fade-left');
       setTimeout(() => {
+          contentDiv.style.display = 'block';
           contentDiv.classList.add('page-right-in');
       }, 750);
   } else {
       loaderDiv.classList.add('fade-out');
       setTimeout(() => {
+          contentDiv.style.display = 'block';
           contentDiv.classList.add('fade-in');
       }, 750);
   }
