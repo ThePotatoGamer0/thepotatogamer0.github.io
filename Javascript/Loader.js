@@ -25,21 +25,31 @@ const currentIndex = navOrder.indexOf(currentPage);
 const referrerIndex = navOrder.indexOf(referrerPage);
 
 function animateTransition(direction) {
-  contentDiv.style.display = 'block'; // Must come before class assignment
+  contentDiv.style.display = 'block'; // show now, animate later
 
   if (direction === 'left') {
-      loaderDiv.classList.add('fade-right');       // loader exits right
-      contentDiv.classList.add('page-left-in');    // content enters from left
+      loaderDiv.classList.add('fade-right');
+      setTimeout(() => {
+          contentDiv.classList.add('page-left-in');
+      }, 500);
   } else if (direction === 'right') {
-      loaderDiv.classList.add('fade-left');        // loader exits left
-      contentDiv.classList.add('page-right-in');   // content enters from right
+      loaderDiv.classList.add('fade-left');
+      setTimeout(() => {
+          contentDiv.classList.add('page-right-in');
+      }, 500);
   } else {
-      loaderDiv.classList.add('fade-out');         // default fade
-      contentDiv.classList.add('fade-in');         // default fade
+      loaderDiv.classList.add('fade-out');
+      setTimeout(() => {
+          contentDiv.classList.add('fade-in');
+      }, 500);
   }
 
-  setTimeout(() => loaderDiv.style.display = 'none', 500);
+  // Finally hide loader div after its animation
+  setTimeout(() => {
+      loaderDiv.style.display = 'none';
+  }, 500);
 }
+
 
 window.addEventListener('load', () => {
     let direction = null;
