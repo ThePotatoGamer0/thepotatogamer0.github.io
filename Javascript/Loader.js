@@ -1,28 +1,49 @@
-// Get the div elements with the class "content" and "loader"
+const navOrder = ['home', 'Itch.io-BrowserGames', 'Ruffler', '3DPrintingWeb'];
+
 const contentDiv = document.querySelector('.content');
 const loaderDiv = document.querySelector('.loader');
-// Initially hide the content div and show the loader div
+
+// Initially hide content, show loader
 contentDiv.style.display = 'none';
-contentDiv.style.opacity = '0';
 loaderDiv.style.display = 'block';
-//Create the function that hides the loader
-function loaderDisappear() {
-    loaderDiv.style.display = 'none';
+
+// Extract page name from URL
+function getPageName(url) {
+    try {
+        const path = new URL(url).pathname;
+        if (path === '/' || path === '') return 'home';
+        const segments = path.split('/').filter(Boolean);
+        return segments[0];
+    } catch {
+        return null;
+    }
 }
-//Create the function that hides the loader and shows the content
-function LoaderEnd() {
-    loaderDiv.classList.add('fade-out');
+
+const currentPage = getPageName(window.location.href);
+const referrerPage = getPageName(document.referrer);
+const currentIndex = navOrder.indexOf(currentPage);
+const referrerIndex = navOrder.indexOf(referrerPage);
+
+function animateTransition(direction) {
+    if (direction === 'left') {
+        loaderDiv.classList.add('fade-right');       // exit right
+        contentDiv.classList.add('page-left-in');    // enter from left
+    } else if (direction === 'right') {
+        loaderDiv.classList.add('fade-left');        // exit left
+        contentDiv.classList.add('page-right-in');   // enter from right
+    } else {
+        loaderDiv.classList.add('fade-out');         // default exit
+        contentDiv.classList.add('fade-in');         // default entry
+    }
+
     contentDiv.style.display = 'block';
-    contentDiv.classList.add('fade-in');
-    setTimeout(loaderDisappear, 500)
+    setTimeout(() => loaderDiv.style.display = 'none', 500);
 }
-// Perform Switch
-if (contentDiv.complete) {
-    setTimeout(LoaderEnd, 500); // Call the function immediately if the div is already loaded
-  } else {
-    // Attach the event listener to the 'load' event of the div
-    contentDiv.addEventListener('load', function() {
-        setTimeout(LoaderEnd, 500);
-    });
-  }
-setTimeout(LoaderEnd, 500); // half a second
+
+window.addEventListener('load', () => {
+    let direction = null;
+    if (referrerIndex !== -1 && currentIndex !== -1) {
+        direction = currentIndex > referrerIndex ? 'right' : 'left';
+    }
+    animateTransition(direction);
+});
