@@ -31,17 +31,17 @@ function animateTransition(direction) {
       loaderDiv.classList.add('fade-right');
       setTimeout(() => {
           contentDiv.classList.add('page-left-in');
-      }, 500);
+      }, 750);
   } else if (direction === 'right') {
       loaderDiv.classList.add('fade-left');
       setTimeout(() => {
           contentDiv.classList.add('page-right-in');
-      }, 500);
+      }, 750);
   } else {
       loaderDiv.classList.add('fade-out');
       setTimeout(() => {
           contentDiv.classList.add('fade-in');
-      }, 500);
+      }, 750);
   }
 
   // Finally hide loader div after its animation
