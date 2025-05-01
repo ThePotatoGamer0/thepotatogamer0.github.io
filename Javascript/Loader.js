@@ -25,19 +25,20 @@ const currentIndex = navOrder.indexOf(currentPage);
 const referrerIndex = navOrder.indexOf(referrerPage);
 
 function animateTransition(direction) {
-    if (direction === 'left') {
-        loaderDiv.classList.add('fade-right');       // exit right
-        contentDiv.classList.add('page-left-in');    // enter from left
-    } else if (direction === 'right') {
-        loaderDiv.classList.add('fade-left');        // exit left
-        contentDiv.classList.add('page-right-in');   // enter from right
-    } else {
-        loaderDiv.classList.add('fade-out');         // default exit
-        contentDiv.classList.add('fade-in');         // default entry
-    }
+  contentDiv.style.display = 'block'; // Must come before class assignment
 
-    contentDiv.style.display = 'block';
-    setTimeout(() => loaderDiv.style.display = 'none', 500);
+  if (direction === 'left') {
+      loaderDiv.classList.add('fade-right');       // loader exits right
+      contentDiv.classList.add('page-left-in');    // content enters from left
+  } else if (direction === 'right') {
+      loaderDiv.classList.add('fade-left');        // loader exits left
+      contentDiv.classList.add('page-right-in');   // content enters from right
+  } else {
+      loaderDiv.classList.add('fade-out');         // default fade
+      contentDiv.classList.add('fade-in');         // default fade
+  }
+
+  setTimeout(() => loaderDiv.style.display = 'none', 500);
 }
 
 window.addEventListener('load', () => {
