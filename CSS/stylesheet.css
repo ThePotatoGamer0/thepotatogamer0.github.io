@@ -130,6 +130,25 @@ nav {
     color: grey;
   }
 
+  .button {
+    display: block;
+    color: white;
+    background-color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    flex-grow: 1; /* Equal width for each item */
+    border-radius: 25px; /* Rounded corners for each item */
+    margin: 0 5px; /* Spacing between items */
+    transition: 1s;
+  }
+
+  .button:hover {
+    background-color: #777777; /* Lighter grey on hover */
+    color: white;
+    scale:1.1;
+  }
+
   /* CSS for the Switch */
 .switch {
     position: relative;
