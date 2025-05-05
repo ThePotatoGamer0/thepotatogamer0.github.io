@@ -1,4 +1,4 @@
-const navOrder = ['home', 'Itch.io-BrowserGames', 'Ruffler', '3DPrintingWeb'];
+const navOrder = ['home', 'Itch.io-BrowserGames', 'Ruffler', 'ChatPotato', '3DPrintingWeb'];
 
 const contentDiv = document.querySelector('.content');
 const loaderDiv = document.querySelector('.loader');
