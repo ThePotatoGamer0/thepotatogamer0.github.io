@@ -1,4 +1,4 @@
-# Homepage
+# Homepage [![GitHub Pages Status](https://img.shields.io/uptimerobot/status/m800684981-faf3fa3efe11b0dd4abda632.svg)](https://stats.uptimerobot.com/C5sTosMnUd)
 A Website to display my work and provide a homepage to access all of my other websites
 
 # Other Pages
