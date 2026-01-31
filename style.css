@@ -63,6 +63,7 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 100%;
 }
 
 .project-card {
@@ -86,7 +87,7 @@ h1 {
 }
 
 .card-image {
-    width: 120px;
+    width: 150px;
     height: 120px;
     background: #111;
     display: flex;
@@ -94,12 +95,22 @@ h1 {
     justify-content: center;
     flex-shrink: 0;
     border-right: 1px solid var(--ui-border);
-    color: var(--text-dim);
+    position: relative;
 }
 
-.card-image svg {
-    width: 40px;
-    opacity: 0.3;
+/* Fix for massive/unscaled images */
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crops image to fill area without distortion */
+    display: block;
+}
+
+.img-placeholder {
+    position: absolute;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    z-index: -1; /* Sits behind the image if the image fails to load */
 }
 
 .card-content {
