@@ -1,23 +1,52 @@
+const words = ["Projects", "Ideas", "Works"];
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const typeSpeed = 150;
+const backSpeed = 100;
+const waitTime = 2000;
+
+function typeEffect() {
+    const currentWord = words[wordIndex];
+    const typewriter = document.getElementById("typewriter");
+
+    if (isDeleting) {
+        charIndex--;
+    } else {
+        charIndex++;
+    }
+
+    typewriter.textContent = currentWord.substring(0, charIndex);
+
+    let pause = isDeleting ? backSpeed : typeSpeed;
+
+    if (!isDeleting && charIndex === currentWord.length) {
+        pause = waitTime;
+        isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        pause = 500;
+    }
+
+    setTimeout(typeEffect, pause);
+}
+
 async function loadProjects() {
-    // List your project folder names here
     const projects = ['time']; 
     const projectList = document.querySelector('.project-list');
-    projectList.innerHTML = ''; // Clear placeholder
-
+    
     for (const folder of projects) {
         try {
-            // Fetch the README from the project folder
             const response = await fetch(`./${folder}/README.md`);
             if (!response.ok) continue;
             
             const text = await response.text();
-            
-            // Basic parsing: First # line is title, next non-empty line is description
             const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+            
             const title = lines[0].replace('#', '').trim();
             const description = lines[1] || "";
 
-            // Create the card
             const card = document.createElement('a');
             card.href = `./${folder}/`;
             card.className = 'project-card';
@@ -33,9 +62,12 @@ async function loadProjects() {
             `;
             projectList.appendChild(card);
         } catch (e) {
-            console.error(`Failed to load project: ${folder}`, e);
+            console.error(`Error loading ${folder}:`, e);
         }
     }
 }
 
-document.addEventListener('DOMContentLoaded', loadProjects);
+document.addEventListener('DOMContentLoaded', () => {
+    loadProjects();
+    setTimeout(typeEffect, 500);
+});
